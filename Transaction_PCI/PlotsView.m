@@ -21,7 +21,6 @@
         }
         return NSOrderedSame;
     }];
-    
         [self drawPlotUsingBits:8 fromArray:_arrayOfEightBits];
         [self drawPlotUsingBits:16 fromArray:_arrayOfSixteenBits];
         [self drawPlotUsingBits:32 fromArray:_arrayOfThirtyTwoBits];

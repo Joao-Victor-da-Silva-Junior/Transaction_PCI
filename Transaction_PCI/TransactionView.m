@@ -12,15 +12,14 @@ typedef enum {
 } Line;
 
 @interface TransactionView () {
-    CGFloat coefficient;
-    NSPoint blockParameters;
-    NSPoint tactParameters;
-    NSInteger tactCount;
-    CGFloat dataStart;
-    CGFloat frameEnd;
-    CGFloat tectHeight;
-    NSInteger valueOfLines;
-    NSInteger numberOfAddress;
+    CGFloat coefficient;     //Хлам!
+    NSPoint blockParameters; //Хлам!
+    NSPoint tactParameters;  //Хлам!
+    NSInteger tactCount;     //Хлам!
+    CGFloat dataStart;       //Хлам!
+    CGFloat frameEnd;        //Хлам!
+    NSInteger valueOfLines;  //Хлам!
+    NSInteger numberOfAddress;//Хлам!
 }
 
 @end
@@ -56,7 +55,7 @@ typedef enum {
     }
     
     if (_drawModeIs == timeInterval) {
-        tactCount = ceilf((CGFloat)_timeInterval*1000/30);
+        tactCount = ceilf((CGFloat)_timeInterval * 1000/30);
         _letters = ceilf((CGFloat)((tactCount-4)*[_arrayOfDelays count]/totalTactsInDelay));
     } else {
         tactCount = ceilf((CGFloat) totalTactsInDelay/[_arrayOfDelays count] * _letters) + 4;
@@ -133,24 +132,24 @@ typedef enum {
         }
     }
     
-    step = tactParameters.x/3;
+    step = _scale/3;
     while (step < self.bounds.size.width) {
         
         currentText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld", counter]
                                                       attributes:attributes];
         
-        [currentText drawAtPoint:NSMakePoint(step + tactParameters.x/10, self.bounds.size.height-20)];
+        [currentText drawAtPoint:NSMakePoint(step + _scale/10, self.bounds.size.height-20)];
 
-        [line moveToPoint:NSMakePoint(step + tactParameters.x/10, 0)];
-        [line lineToPoint:NSMakePoint(step + tactParameters.x/10, self.bounds.size.height)];
-        step += tactParameters.x;
+        [line moveToPoint:NSMakePoint(step + _scale/10, 0)];
+        [line lineToPoint:NSMakePoint(step + _scale/10, self.bounds.size.height)];
+        step += _scale;
         counter++;
     }
     
     [line stroke];
-}
+} //Пока что не трогать
 
-- (void) setPulse {
+/*- (void) setPulse {
     
     CGFloat step = 0;
     NSBezierPath *line = [NSBezierPath bezierPath];
@@ -158,7 +157,6 @@ typedef enum {
     [line setLineWidth:1.f];
     NSPoint lowPoint = NSMakePoint(step, lineClk);
     NSPoint highPoint = NSMakePoint(step + tactParameters.x/2, lineClk + tactParameters.y);
-    
     NSInteger counter = 0;
     
     while (counter < tactCount) {
@@ -177,9 +175,35 @@ typedef enum {
         highPoint.x = step + tactParameters.x/2;
         counter++;
     }
-}
+}*/
 
-- (void) setFrame {
+- (void) setPulse {
+    CGFloat step = 0.;
+    NSInteger counter = 0;
+    NSBezierPath *line = [NSBezierPath bezierPath];
+    [[NSColor blackColor] set];
+    line.lineWidth = 1.f;
+    NSPoint lowPoint = {step, lineClk};
+    NSPoint highPoint = {step + _scale/2, lineClk + _scale * 2 / 3};
+    
+    while (counter < self.bounds.size.width) {
+        [line moveToPoint:lowPoint];
+        lowPoint.x += _scale/3;
+        [line lineToPoint:lowPoint];
+        [line lineToPoint:highPoint];
+        highPoint.x += _scale/3;
+        [line lineToPoint:highPoint];
+        lowPoint.x += _scale * 2/3;
+        [line lineToPoint:lowPoint];
+        [line stroke];
+        step += _scale;
+        lowPoint.x = step;
+        highPoint.x = step + _scale/2;
+        counter += _scale;
+    }
+} // Меньше параметров. Зачем нам tactParameters, если есть масштаб и постоянное отношение 2:3?
+
+/*- (void) setFrame {
     NSBezierPath *line = [NSBezierPath bezierPath];
     [[NSColor blackColor] set];
     [line setLineWidth:1.f];
@@ -190,44 +214,58 @@ typedef enum {
     [line lineToPoint:NSMakePoint(frameEnd + (tactParameters.x/10), lineFrame + tactParameters.y)];
     [line lineToPoint:NSMakePoint(self.bounds.size.width, lineFrame + tactParameters.y)];
     [line stroke];
+}*/
+
+- (void) setFrame {
+    NSBezierPath *line = [NSBezierPath bezierPath];
+    [[NSColor blackColor] set];
+    [line setLineWidth:1.f];
+    [line moveToPoint:NSMakePoint(0, lineFrame + _scale * 2/3)];
+    [line lineToPoint:NSMakePoint((_scale * 2)/3 + (_scale/10), lineFrame + _scale * 2/3)];
+    [line lineToPoint:NSMakePoint(_scale - (_scale/20), lineFrame)];
+    [line lineToPoint:NSMakePoint(_frameEnd - (_scale/10), lineFrame)];
+    [line lineToPoint:NSMakePoint(_frameEnd + (_scale/10), lineFrame + _scale * 2/3)];
+    [line lineToPoint:NSMakePoint(self.bounds.size.width, lineFrame + _scale * 2/3)];
+    [line stroke];
+
 }
 
 - (void) setFirstDataAndCommand {
     
     NSBezierPath *line = [NSBezierPath bezierPath];
     line.lineWidth = 1.f;
-    CGFloat buferValue = lineCbe + blockParameters.y/2;
+    CGFloat buferValue = lineCbe + _scale/3;
     
     for (int i = 0; i < valueOfLines; i++) {
         [line moveToPoint:NSMakePoint(0, buferValue)];
         [line lineToPoint:NSMakePoint(self.bounds.size.width, buferValue)];
         if (i == valueOfLines/2 - 1) {
-            buferValue = lineAd + blockParameters.y/2;
+            buferValue = lineAd + _scale/3;
         } else {
             buferValue += (lineAd - lineCbe)/2;
         }
     }
     
     [line stroke];
-    buferValue = lineCbe + blockParameters.y/2;
+    buferValue = lineCbe + _scale/3;
     CGFloat step = 0;
     
     for (int j = 0; j < numberOfAddress; j++) {
         
         for (int i = 0; i < valueOfLines; i++) {
-            [self drawCellWhichStartAt:NSMakePoint(blockParameters.x - blockParameters.x/6 + step, buferValue)
+            [self drawCellWhichStartAt:NSMakePoint(_scale - _scale/6 + step, buferValue)
                              withColor:[NSColor yellowColor]
-                             andLength:blockParameters.x];
+                             andLength:_scale];
             
             if (i == valueOfLines/2 - 1) {
-                buferValue = lineAd + blockParameters.y/2;
+                buferValue = lineAd + _scale/3;
             } else {
                 buferValue += (lineAd - lineCbe)/2;
             }
         }
         
-        step += blockParameters.x;
-        buferValue = lineCbe + blockParameters.y/2;
+        step += _scale;
+        buferValue = lineCbe + _scale/3;
     }
 }
 
@@ -240,27 +278,27 @@ typedef enum {
     for (int i = 0; i < _letters; i++) {
         delay = ceilf((CGFloat) [[_arrayOfDelays objectAtIndex:positionOfDelay] integerValue]/30);
         step += blockParameters.x * delay;
-        linesStep = lineCbe + blockParameters.y/2;
+        linesStep = lineCbe + _scale/3;
         positionOfDelay = (positionOfDelay != [_arrayOfDelays count] - 1) ? positionOfDelay + 1 : 0;
         
         for (int j = 0; j < valueOfLines; j++) {
             if (j < valueOfLines/2) {
-                [self drawCellWhichStartAt:NSMakePoint(step - blockParameters.x, linesStep)
+                [self drawCellWhichStartAt:NSMakePoint(step - _scale, linesStep)
                                  withColor:[NSColor redColor]
-                                 andLength:blockParameters.x];
+                                 andLength:_scale];
                 linesStep += (lineAd - lineCbe)/2;
             } else {
-                [self drawCellWhichStartAt:NSMakePoint(step - blockParameters.x, linesStep)
+                [self drawCellWhichStartAt:NSMakePoint(step - _scale, linesStep)
                                  withColor:[NSColor greenColor]
-                                 andLength:blockParameters.x];
+                                 andLength:_scale];
                 linesStep += (lineAd - lineCbe)/2;
             }
             if (j == valueOfLines/2 - 1) {
-                linesStep = lineAd + blockParameters.y/2;
+                linesStep = lineAd + _scale/3;
             }
         }
     }
-    frameEnd = step - blockParameters.x;
+    frameEnd = step - _scale;
 }
 
 - (void) setIrdy {
@@ -271,7 +309,7 @@ typedef enum {
     [[NSColor blackColor] set];
     line.lineWidth = 1.f;
     NSInteger step = dataStart;
-    [line moveToPoint:NSMakePoint(0, lineIrdy + tactParameters.y)];
+    [line moveToPoint:NSMakePoint(0, lineIrdy + _scale * 2/3)];
     
     for (int i = 0; i < _letters; i++) {
         
@@ -279,23 +317,23 @@ typedef enum {
         if (delay != (CGFloat)[[_arrayOfDelays objectAtIndex:positionOfDelay] integerValue]/30) {
             delay++;
         }
-        step += blockParameters.x * delay;
+        step += _scale * delay;
         if (i == 0) {
-            [line lineToPoint:NSMakePoint(step - blockParameters.x - blockParameters.x/10, lineIrdy + tactParameters.y)];
-            [line lineToPoint:NSMakePoint(step - blockParameters.x + blockParameters.x/10, lineIrdy)];
+            [line lineToPoint:NSMakePoint(step - _scale - _scale/10, lineIrdy + _scale * 2/3)];
+            [line lineToPoint:NSMakePoint(step - _scale + _scale/10, lineIrdy)];
         }
         if (delay > 1 && i != 0) {
             
-            [line lineToPoint:NSMakePoint(step - (blockParameters.x * delay + blockParameters.x/10), lineIrdy)];
-            [line lineToPoint:NSMakePoint(step - (blockParameters.x * delay - blockParameters.x/10), lineIrdy + tactParameters.y)];
-            [line lineToPoint:NSMakePoint(step - blockParameters.x - blockParameters.x/10, lineIrdy + tactParameters.y)];
-            [line lineToPoint:NSMakePoint(step - blockParameters.x + blockParameters.x/10, lineIrdy)];
+            [line lineToPoint:NSMakePoint(step - (_scale * delay + _scale/10), lineIrdy)];
+            [line lineToPoint:NSMakePoint(step - (_scale * delay - _scale/10), lineIrdy + _scale * 2/3)];
+            [line lineToPoint:NSMakePoint(step - _scale - _scale/10, lineIrdy + _scale * 2/3)];
+            [line lineToPoint:NSMakePoint(step - _scale + _scale/10, lineIrdy)];
         }
         
         if (i == _letters - 1) {
-            [line lineToPoint:NSMakePoint(step - blockParameters.x/10, lineIrdy)];
-            [line lineToPoint:NSMakePoint(step + blockParameters.x/10, lineIrdy + tactParameters.y)];
-            [line lineToPoint:NSMakePoint(self.bounds.size.width, lineIrdy + tactParameters.y)];
+            [line lineToPoint:NSMakePoint(step - _scale/10, lineIrdy)];
+            [line lineToPoint:NSMakePoint(step + _scale/10, lineIrdy + _scale * 2/3)];
+            [line lineToPoint:NSMakePoint(self.bounds.size.width, lineIrdy + _scale * 2/3)];
         }
         
         if (positionOfDelay != [_arrayOfDelays count] - 1) {
@@ -311,14 +349,14 @@ typedef enum {
     NSBezierPath *drawer = [NSBezierPath bezierPath];
     [[NSColor blackColor] set];
     drawer.lineWidth = 1.f;
-    [drawer moveToPoint:NSMakePoint(0, line + tactParameters.y)];
-    [drawer lineToPoint:NSMakePoint(2 * blockParameters.x - (blockParameters.x/10), line + tactParameters.y)];
-    [drawer lineToPoint:NSMakePoint(2 * blockParameters.x + (blockParameters.x/10), line)];
-    [drawer lineToPoint:NSMakePoint(frameEnd + blockParameters.x - blockParameters.x/10, line)];
-    [drawer lineToPoint:NSMakePoint(frameEnd + blockParameters.x + blockParameters.x/10, line + tactParameters.y)];
-    [drawer lineToPoint:NSMakePoint(self.bounds.size.width, line + tactParameters.y)];
+    [drawer moveToPoint:NSMakePoint(0, line + _scale *2/3)];
+    [drawer lineToPoint:NSMakePoint(2 * _scale - (_scale/10), line + _scale * 2/3)];
+    [drawer lineToPoint:NSMakePoint(2 * _scale + (_scale/10), line)];
+    [drawer lineToPoint:NSMakePoint(frameEnd + _scale - _scale/10, line)];
+    [drawer lineToPoint:NSMakePoint(frameEnd + _scale + _scale/10, line + _scale * 2/3)];
+    [drawer lineToPoint:NSMakePoint(self.bounds.size.width, line + _scale * 2/3)];
     [drawer stroke];
-}
+} //Пока что не трогать
 
 - (void) drawCellWhichStartAt:(NSPoint) point withColor:(NSColor *) color andLength:(CGFloat) length {
     NSDictionary *attributes = [NSDictionary
@@ -330,12 +368,12 @@ typedef enum {
     [color set];
     cellDrawer.lineWidth = 1.f;
     [cellDrawer moveToPoint:point];
-    CGFloat part = blockParameters.y/2;
+    CGFloat part = _scale/3;
     
     for (int i = 0; i < 2; i++) {
         [cellDrawer moveToPoint:point];
-        [cellDrawer lineToPoint:NSMakePoint(point.x + blockParameters.y/6, point.y + part)];
-        [cellDrawer lineToPoint:NSMakePoint(point.x + length - blockParameters.y/6, point.y + part)];
+        [cellDrawer lineToPoint:NSMakePoint(point.x + _scale * 2/3/6, point.y + part)];
+        [cellDrawer lineToPoint:NSMakePoint(point.x + length - _scale *2/3/6, point.y + part)];
         [cellDrawer lineToPoint:NSMakePoint(point.x + length, point.y)];
         part *= -1;
     }

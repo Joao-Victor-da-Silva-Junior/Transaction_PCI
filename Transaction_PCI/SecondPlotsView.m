@@ -15,7 +15,6 @@
     [[NSColor whiteColor] set];
     NSRectFill([self bounds]);
     [self drawPlot];
-    
 }
 
 - (void) drawPlot {

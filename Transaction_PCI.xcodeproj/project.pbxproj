@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5510B5821C5FE537003CB457 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 5510B5811C5FE537003CB457 /* Model.m */; };
 		8B2006451C243FA700054D5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2006441C243FA700054D5D /* AppDelegate.m */; };
 		8B2006481C243FA700054D5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2006471C243FA700054D5D /* main.m */; };
 		8B20064B1C243FA700054D5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B20064A1C243FA700054D5D /* ViewController.m */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5510B5801C5FE537003CB457 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		5510B5811C5FE537003CB457 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		8B2006401C243FA700054D5D /* Transaction_PCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transaction_PCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B2006431C243FA700054D5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8B2006441C243FA700054D5D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -85,6 +88,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5510B57C1C5FE4DF003CB457 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8B2006491C243FA700054D5D /* ViewController.h */,
+				8B20064A1C243FA700054D5D /* ViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		5510B57D1C5FE4E3003CB457 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B2006731C24401E00054D5D /* TransactionView.h */,
+				8B2006741C24401E00054D5D /* TransactionView.m */,
+				8BC3BDAB1C2D0B370010E9F0 /* PlotsView.h */,
+				8BC3BDAC1C2D0B370010E9F0 /* PlotsView.m */,
+				8BC3BDAE1C2D3E4B0010E9F0 /* SecondPlotsView.h */,
+				8BC3BDAF1C2D3E4B0010E9F0 /* SecondPlotsView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		5510B57E1C5FE4E6003CB457 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5510B5801C5FE537003CB457 /* Model.h */,
+				5510B5811C5FE537003CB457 /* Model.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5510B57F1C5FE520003CB457 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				8B2006431C243FA700054D5D /* AppDelegate.h */,
+				8B2006441C243FA700054D5D /* AppDelegate.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
 		8B2006371C243FA700054D5D = {
 			isa = PBXGroup;
 			children = (
@@ -108,16 +151,10 @@
 		8B2006421C243FA700054D5D /* Transaction_PCI */ = {
 			isa = PBXGroup;
 			children = (
-				8B2006431C243FA700054D5D /* AppDelegate.h */,
-				8B2006441C243FA700054D5D /* AppDelegate.m */,
-				8B2006491C243FA700054D5D /* ViewController.h */,
-				8B20064A1C243FA700054D5D /* ViewController.m */,
-				8B2006731C24401E00054D5D /* TransactionView.h */,
-				8B2006741C24401E00054D5D /* TransactionView.m */,
-				8BC3BDAB1C2D0B370010E9F0 /* PlotsView.h */,
-				8BC3BDAC1C2D0B370010E9F0 /* PlotsView.m */,
-				8BC3BDAE1C2D3E4B0010E9F0 /* SecondPlotsView.h */,
-				8BC3BDAF1C2D3E4B0010E9F0 /* SecondPlotsView.m */,
+				5510B57F1C5FE520003CB457 /* Other */,
+				5510B57E1C5FE4E6003CB457 /* Model */,
+				5510B57D1C5FE4E3003CB457 /* View */,
+				5510B57C1C5FE4DF003CB457 /* Controller */,
 				8B20064C1C243FA700054D5D /* Assets.xcassets */,
 				8B20064E1C243FA700054D5D /* Main.storyboard */,
 				8B2006511C243FA700054D5D /* Info.plist */,
@@ -285,6 +322,7 @@
 				8BC3BDB01C2D3E4B0010E9F0 /* SecondPlotsView.m in Sources */,
 				8B2006751C24401E00054D5D /* TransactionView.m in Sources */,
 				8B2006481C243FA700054D5D /* main.m in Sources */,
+				5510B5821C5FE537003CB457 /* Model.m in Sources */,
 				8B2006451C243FA700054D5D /* AppDelegate.m in Sources */,
 				8BC3BDAD1C2D0B370010E9F0 /* PlotsView.m in Sources */,
 			);

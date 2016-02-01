@@ -11,7 +11,7 @@
 @class TransactionView, PlotsView, SecondPlotsView;
 @interface ViewController : NSViewController
 
-@property (weak, nonatomic) IBOutlet TransactionView *transactionView;
+@property (strong, nonatomic) IBOutlet TransactionView *transactionView;
 @property (weak, nonatomic) IBOutlet PlotsView *plotView;
 @property (weak, nonatomic) IBOutlet SecondPlotsView *secondPlotViev;
 

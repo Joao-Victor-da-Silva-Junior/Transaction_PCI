@@ -17,4 +17,8 @@ typedef enum {
 @property (strong, nonatomic) NSString *command;
 @property (strong, nonatomic) NSString *digitAddress;
 
+@property (strong, nonatomic) NSMutableDictionary *mainDictionary;
+@property (assign, nonatomic) CGFloat scale;
+@property (assign, nonatomic) CGFloat frameEnd;
+
 @end

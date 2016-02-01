@@ -9,11 +9,15 @@
 #import "ViewController.h"
 #import "TransactionView.h"
 #import "PlotsView.h"
+#import "Model.h"
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    Model *myModel = [[Model alloc] init];
+    self.transactionView.scale = [myModel.mainDictionary[@"Scale"] floatValue];
+    self.transactionView.frameEnd = [myModel.mainDictionary[@"Frame End"] floatValue];
     self.transactionView.firstLaunch = YES;
     self.transactionView.drawModeIs = cells;
     self.modeTextRepresentation.stringValue = @"Число слов:";
@@ -139,7 +143,7 @@
     self.plotView.arrayOfThirtyTwoBits = [NSMutableArray array];
     NSInteger step = 0;
     CGFloat value = 1;
-    CGFloat lettersInNano = 30*32*value/4;
+    CGFloat lettersInNano = 30 * 32 * value/4;
     
     for (int i = 1; i < 12; i++) {
         lettersInNano = value/i;
@@ -147,10 +151,7 @@
         [self.plotView.arrayOfSixteenBits addObject:[NSValue valueWithPoint:NSMakePoint(step, lettersInNano)]];
         [self.plotView.arrayOfThirtyTwoBits addObject:[NSValue valueWithPoint:NSMakePoint(step, lettersInNano)]];
         step += self.plotView.bounds.size.width/10;
-
     }
-    
-
 }
 
 @end
