@@ -1,0 +1,533 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8B2006451C243FA700054D5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2006441C243FA700054D5D /* AppDelegate.m */; };
+		8B2006481C243FA700054D5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2006471C243FA700054D5D /* main.m */; };
+		8B20064B1C243FA700054D5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B20064A1C243FA700054D5D /* ViewController.m */; };
+		8B20064D1C243FA700054D5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B20064C1C243FA700054D5D /* Assets.xcassets */; };
+		8B2006501C243FA700054D5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B20064E1C243FA700054D5D /* Main.storyboard */; };
+		8B20065B1C243FA700054D5D /* __________Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B20065A1C243FA700054D5D /* __________Tests.m */; };
+		8B2006661C243FA700054D5D /* __________UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2006651C243FA700054D5D /* __________UITests.m */; };
+		8B2006751C24401E00054D5D /* TransactionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2006741C24401E00054D5D /* TransactionView.m */; };
+		8BC3BDAD1C2D0B370010E9F0 /* PlotsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3BDAC1C2D0B370010E9F0 /* PlotsView.m */; };
+		8BC3BDB01C2D3E4B0010E9F0 /* SecondPlotsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3BDAF1C2D3E4B0010E9F0 /* SecondPlotsView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8B2006571C243FA700054D5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B2006381C243FA700054D5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B20063F1C243FA700054D5D;
+			remoteInfo = "Курсач ЭВМ";
+		};
+		8B2006621C243FA700054D5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B2006381C243FA700054D5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B20063F1C243FA700054D5D;
+			remoteInfo = "Курсач ЭВМ";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8B2006401C243FA700054D5D /* Transaction_PCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transaction_PCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B2006431C243FA700054D5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8B2006441C243FA700054D5D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8B2006471C243FA700054D5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8B2006491C243FA700054D5D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8B20064A1C243FA700054D5D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8B20064C1C243FA700054D5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B20064F1C243FA700054D5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8B2006511C243FA700054D5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B2006561C243FA700054D5D /* Transaction_PCI.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Transaction_PCI.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B20065A1C243FA700054D5D /* __________Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "__________Tests.m"; sourceTree = "<group>"; };
+		8B20065C1C243FA700054D5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B2006611C243FA700054D5D /* Transaction_PCI.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Transaction_PCI.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B2006651C243FA700054D5D /* __________UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "__________UITests.m"; sourceTree = "<group>"; };
+		8B2006671C243FA700054D5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B2006731C24401E00054D5D /* TransactionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionView.h; sourceTree = "<group>"; };
+		8B2006741C24401E00054D5D /* TransactionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionView.m; sourceTree = "<group>"; };
+		8BC3BDAB1C2D0B370010E9F0 /* PlotsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotsView.h; sourceTree = "<group>"; };
+		8BC3BDAC1C2D0B370010E9F0 /* PlotsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotsView.m; sourceTree = "<group>"; };
+		8BC3BDAE1C2D3E4B0010E9F0 /* SecondPlotsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondPlotsView.h; sourceTree = "<group>"; };
+		8BC3BDAF1C2D3E4B0010E9F0 /* SecondPlotsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondPlotsView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8B20063D1C243FA700054D5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B2006531C243FA700054D5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B20065E1C243FA700054D5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8B2006371C243FA700054D5D = {
+			isa = PBXGroup;
+			children = (
+				8B2006421C243FA700054D5D /* Transaction_PCI */,
+				8B2006591C243FA700054D5D /* Transaction_PCITests */,
+				8B2006641C243FA700054D5D /* Transaction_PCIUITests */,
+				8B2006411C243FA700054D5D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8B2006411C243FA700054D5D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B2006401C243FA700054D5D /* Transaction_PCI.app */,
+				8B2006561C243FA700054D5D /* Transaction_PCI.xctest */,
+				8B2006611C243FA700054D5D /* Transaction_PCI.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8B2006421C243FA700054D5D /* Transaction_PCI */ = {
+			isa = PBXGroup;
+			children = (
+				8B2006431C243FA700054D5D /* AppDelegate.h */,
+				8B2006441C243FA700054D5D /* AppDelegate.m */,
+				8B2006491C243FA700054D5D /* ViewController.h */,
+				8B20064A1C243FA700054D5D /* ViewController.m */,
+				8B2006731C24401E00054D5D /* TransactionView.h */,
+				8B2006741C24401E00054D5D /* TransactionView.m */,
+				8BC3BDAB1C2D0B370010E9F0 /* PlotsView.h */,
+				8BC3BDAC1C2D0B370010E9F0 /* PlotsView.m */,
+				8BC3BDAE1C2D3E4B0010E9F0 /* SecondPlotsView.h */,
+				8BC3BDAF1C2D3E4B0010E9F0 /* SecondPlotsView.m */,
+				8B20064C1C243FA700054D5D /* Assets.xcassets */,
+				8B20064E1C243FA700054D5D /* Main.storyboard */,
+				8B2006511C243FA700054D5D /* Info.plist */,
+				8B2006461C243FA700054D5D /* Supporting Files */,
+			);
+			path = Transaction_PCI;
+			sourceTree = "<group>";
+		};
+		8B2006461C243FA700054D5D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8B2006471C243FA700054D5D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8B2006591C243FA700054D5D /* Transaction_PCITests */ = {
+			isa = PBXGroup;
+			children = (
+				8B20065A1C243FA700054D5D /* __________Tests.m */,
+				8B20065C1C243FA700054D5D /* Info.plist */,
+			);
+			path = Transaction_PCITests;
+			sourceTree = "<group>";
+		};
+		8B2006641C243FA700054D5D /* Transaction_PCIUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8B2006651C243FA700054D5D /* __________UITests.m */,
+				8B2006671C243FA700054D5D /* Info.plist */,
+			);
+			path = Transaction_PCIUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8B20063F1C243FA700054D5D /* Transaction_PCI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B20066A1C243FA700054D5D /* Build configuration list for PBXNativeTarget "Transaction_PCI" */;
+			buildPhases = (
+				8B20063C1C243FA700054D5D /* Sources */,
+				8B20063D1C243FA700054D5D /* Frameworks */,
+				8B20063E1C243FA700054D5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Transaction_PCI;
+			productName = "Курсач ЭВМ";
+			productReference = 8B2006401C243FA700054D5D /* Transaction_PCI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8B2006551C243FA700054D5D /* Transaction_PCITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B20066D1C243FA700054D5D /* Build configuration list for PBXNativeTarget "Transaction_PCITests" */;
+			buildPhases = (
+				8B2006521C243FA700054D5D /* Sources */,
+				8B2006531C243FA700054D5D /* Frameworks */,
+				8B2006541C243FA700054D5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B2006581C243FA700054D5D /* PBXTargetDependency */,
+			);
+			name = Transaction_PCITests;
+			productName = "Курсач ЭВМTests";
+			productReference = 8B2006561C243FA700054D5D /* Transaction_PCI.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8B2006601C243FA700054D5D /* Transaction_PCIUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B2006701C243FA700054D5D /* Build configuration list for PBXNativeTarget "Transaction_PCIUITests" */;
+			buildPhases = (
+				8B20065D1C243FA700054D5D /* Sources */,
+				8B20065E1C243FA700054D5D /* Frameworks */,
+				8B20065F1C243FA700054D5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B2006631C243FA700054D5D /* PBXTargetDependency */,
+			);
+			name = Transaction_PCIUITests;
+			productName = "Курсач ЭВМUITests";
+			productReference = 8B2006611C243FA700054D5D /* Transaction_PCI.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8B2006381C243FA700054D5D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Виктор";
+				TargetAttributes = {
+					8B20063F1C243FA700054D5D = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					8B2006551C243FA700054D5D = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 8B20063F1C243FA700054D5D;
+					};
+					8B2006601C243FA700054D5D = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 8B20063F1C243FA700054D5D;
+					};
+				};
+			};
+			buildConfigurationList = 8B20063B1C243FA700054D5D /* Build configuration list for PBXProject "Transaction_PCI" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8B2006371C243FA700054D5D;
+			productRefGroup = 8B2006411C243FA700054D5D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8B20063F1C243FA700054D5D /* Transaction_PCI */,
+				8B2006551C243FA700054D5D /* Transaction_PCITests */,
+				8B2006601C243FA700054D5D /* Transaction_PCIUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8B20063E1C243FA700054D5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B20064D1C243FA700054D5D /* Assets.xcassets in Resources */,
+				8B2006501C243FA700054D5D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B2006541C243FA700054D5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B20065F1C243FA700054D5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8B20063C1C243FA700054D5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B20064B1C243FA700054D5D /* ViewController.m in Sources */,
+				8BC3BDB01C2D3E4B0010E9F0 /* SecondPlotsView.m in Sources */,
+				8B2006751C24401E00054D5D /* TransactionView.m in Sources */,
+				8B2006481C243FA700054D5D /* main.m in Sources */,
+				8B2006451C243FA700054D5D /* AppDelegate.m in Sources */,
+				8BC3BDAD1C2D0B370010E9F0 /* PlotsView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B2006521C243FA700054D5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B20065B1C243FA700054D5D /* __________Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B20065D1C243FA700054D5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B2006661C243FA700054D5D /* __________UITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8B2006581C243FA700054D5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B20063F1C243FA700054D5D /* Transaction_PCI */;
+			targetProxy = 8B2006571C243FA700054D5D /* PBXContainerItemProxy */;
+		};
+		8B2006631C243FA700054D5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B20063F1C243FA700054D5D /* Transaction_PCI */;
+			targetProxy = 8B2006621C243FA700054D5D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8B20064E1C243FA700054D5D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B20064F1C243FA700054D5D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8B2006681C243FA700054D5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		8B2006691C243FA700054D5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		8B20066B1C243FA700054D5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Transaction_PCI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Viktor-Volkov.----------";
+				PRODUCT_NAME = Transaction_PCI;
+			};
+			name = Debug;
+		};
+		8B20066C1C243FA700054D5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Transaction_PCI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Viktor-Volkov.----------";
+				PRODUCT_NAME = Transaction_PCI;
+			};
+			name = Release;
+		};
+		8B20066E1C243FA700054D5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Курсач ЭВМTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Viktor-Volkov.----------Tests";
+				PRODUCT_NAME = Transaction_PCI;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Transaction_PCI.app/Contents/MacOS/Transaction_PCI";
+			};
+			name = Debug;
+		};
+		8B20066F1C243FA700054D5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Курсач ЭВМTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Viktor-Volkov.----------Tests";
+				PRODUCT_NAME = Transaction_PCI;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Transaction_PCI.app/Contents/MacOS/Transaction_PCI";
+			};
+			name = Release;
+		};
+		8B2006711C243FA700054D5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Курсач ЭВМUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Viktor-Volkov.----------UITests";
+				PRODUCT_NAME = Transaction_PCI;
+				TEST_TARGET_NAME = "Курсач ЭВМ";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		8B2006721C243FA700054D5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Курсач ЭВМUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Viktor-Volkov.----------UITests";
+				PRODUCT_NAME = Transaction_PCI;
+				TEST_TARGET_NAME = "Курсач ЭВМ";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8B20063B1C243FA700054D5D /* Build configuration list for PBXProject "Transaction_PCI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B2006681C243FA700054D5D /* Debug */,
+				8B2006691C243FA700054D5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B20066A1C243FA700054D5D /* Build configuration list for PBXNativeTarget "Transaction_PCI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B20066B1C243FA700054D5D /* Debug */,
+				8B20066C1C243FA700054D5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B20066D1C243FA700054D5D /* Build configuration list for PBXNativeTarget "Transaction_PCITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B20066E1C243FA700054D5D /* Debug */,
+				8B20066F1C243FA700054D5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B2006701C243FA700054D5D /* Build configuration list for PBXNativeTarget "Transaction_PCIUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B2006711C243FA700054D5D /* Debug */,
+				8B2006721C243FA700054D5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8B2006381C243FA700054D5D /* Project object */;
+}
