@@ -17,7 +17,7 @@
     [super viewDidLoad];
     Model *myModel = [[Model alloc] init];
     self.transactionView.mainDictionary = [Model returnDictionaryUsingCells:NO
-                                                                 parameters:1
+                                                                 parameters:0.5
                                                                     bitWord:8
                                                                     command:3
                                                                digitAddress:1

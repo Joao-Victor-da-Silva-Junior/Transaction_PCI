@@ -8,7 +8,7 @@
 + (NSMutableDictionary *) returnRandomValues;
 
 + (NSMutableDictionary *) returnDictionaryUsingCells:(BOOL) isCells
-                                          parameters:(NSInteger) param
+                                          parameters:(CGFloat) param
                                              bitWord:(NSInteger) bitWord
                                              command:(NSInteger) cmd
                                         digitAddress:(NSInteger) digAdr
