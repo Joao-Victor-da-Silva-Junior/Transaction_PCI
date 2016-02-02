@@ -17,7 +17,6 @@ typedef enum {
     NSPoint tactParameters;  //Хлам!
     NSInteger tactCount;     //Хлам!
     CGFloat dataStart;       //Хлам!
-    CGFloat frameEnd;        //Хлам!
     NSInteger valueOfLines;  //Хлам!
     NSInteger numberOfAddress;//Хлам!
 }
@@ -36,12 +35,15 @@ typedef enum {
         self.timeInterval = 0.5;
         self.arrayOfDelays = [NSArray arrayWithObjects:@90, @30, @30, @30, nil];
     }
+    _scale = [self.mainDictionary[@"Scale"] floatValue];
     
     [self setValues];
     [self setHelpersLine];
     [self setPulse];
     [self setFirstDataAndCommand];
-    [self setBlocks];
+  //  [self setBlocks];
+    [self setADBlocks];
+    [self setCbeBlocks];
     [self setFrame];
     [self setIrdy];
     [self setTrdyOrDevSel:lineTrdy];
@@ -89,7 +91,7 @@ typedef enum {
             valueOfLines = 2;
         }
     } else {
-        blockParameters.y = 40 * coefficient*0.5;
+        blockParameters.y = 40 * coefficient * 0.5;
         numberOfAddress = 1;
         valueOfLines = 4;
     }
@@ -119,14 +121,14 @@ typedef enum {
     }
     
     if (valueOfLines == 3) {
-        [line moveToPoint:NSMakePoint(0, (lineAd - lineCbe)/2 + lineAd)];
-        [line lineToPoint:NSMakePoint(self.bounds.size.width, (lineAd - lineCbe)/2 + lineAd)];
+        [line moveToPoint:NSMakePoint(0, (lineAd - lineCbe) / 2 + lineAd)];
+        [line lineToPoint:NSMakePoint(self.bounds.size.width, (lineAd - lineCbe) / 2 + lineAd)];
     }
     
     if (valueOfLines == 4) {
         step = 0;
         for (int i = 0; i < 2; i++) {
-            [line moveToPoint:NSMakePoint(0, (lineAd - lineCbe)/2 + lineCbe + step)];
+            [line moveToPoint:NSMakePoint(0, (lineAd - lineCbe) / 2 + lineCbe + step)];
             [line lineToPoint:NSMakePoint(self.bounds.size.width, (lineAd - lineCbe)/2 + lineCbe + step)];
             step += lineAd - lineCbe;
         }
@@ -138,10 +140,10 @@ typedef enum {
         currentText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld", counter]
                                                       attributes:attributes];
         
-        [currentText drawAtPoint:NSMakePoint(step + _scale/10, self.bounds.size.height-20)];
+        [currentText drawAtPoint:NSMakePoint(step + _scale / 10, self.bounds.size.height-20)];
 
-        [line moveToPoint:NSMakePoint(step + _scale/10, 0)];
-        [line lineToPoint:NSMakePoint(step + _scale/10, self.bounds.size.height)];
+        [line moveToPoint:NSMakePoint(step + _scale / 10, 0)];
+        [line lineToPoint:NSMakePoint(step + _scale / 10, self.bounds.size.height)];
         step += _scale;
         counter++;
     }
@@ -277,7 +279,7 @@ typedef enum {
     CGFloat linesStep;
     for (int i = 0; i < _letters; i++) {
         delay = ceilf((CGFloat) [[_arrayOfDelays objectAtIndex:positionOfDelay] integerValue]/30);
-        step += blockParameters.x * delay;
+        step += _scale * delay;
         linesStep = lineCbe + _scale/3;
         positionOfDelay = (positionOfDelay != [_arrayOfDelays count] - 1) ? positionOfDelay + 1 : 0;
         
@@ -298,8 +300,38 @@ typedef enum {
             }
         }
     }
-    frameEnd = step - _scale;
+    _frameEnd = step - _scale;
 }
+
+- (void) setADBlocks {
+    NSInteger numberOfBlocks = [self.mainDictionary[@"Num of Blocks"] integerValue];
+    NSMutableArray *arrayOfDelays = self.mainDictionary[@"Access"];
+    NSInteger counter = 2;
+    for (int i = 0; i < numberOfBlocks; i++) {
+        counter += ([[arrayOfDelays objectAtIndex:i % [arrayOfDelays count]] integerValue] - 1);
+        NSLog(@"%ld", (long)[[arrayOfDelays objectAtIndex:i % [arrayOfDelays count]] integerValue]);
+        [self drawCellWhichStartAt:NSMakePoint(counter * _scale - _scale/6, lineAd + _scale/3)
+                         withColor:[NSColor redColor]
+                         andLength:_scale];
+        counter++;
+        
+    }
+}
+
+- (void) setCbeBlocks {
+    NSInteger numberOfBlocks = [self.mainDictionary[@"Num of Blocks"] integerValue];
+    NSMutableArray *arrayOfDelays = self.mainDictionary[@"Access"];
+    NSInteger counter = 2;
+    for (int i = 0; i < numberOfBlocks; i++) {
+        counter += ([[arrayOfDelays objectAtIndex:i % [arrayOfDelays count]] integerValue] - 1);
+        NSLog(@"%ld", (long)[[arrayOfDelays objectAtIndex:i % [arrayOfDelays count]] integerValue]);
+        [self drawCellWhichStartAt:NSMakePoint(counter * _scale - _scale/6, lineCbe + _scale/3)
+                         withColor:[NSColor greenColor]
+                         andLength:_scale];
+        counter++;
+        
+    }
+} //Хорошо, но код дублируется с AD.
 
 - (void) setIrdy {
     
@@ -343,17 +375,17 @@ typedef enum {
         }
     }
     [line stroke];
-}
+} //Можно сделать лучше! (минимум - короче и проще)
 
 - (void) setTrdyOrDevSel:(NSInteger) line {
     NSBezierPath *drawer = [NSBezierPath bezierPath];
     [[NSColor blackColor] set];
     drawer.lineWidth = 1.f;
-    [drawer moveToPoint:NSMakePoint(0, line + _scale *2/3)];
+    [drawer moveToPoint:NSMakePoint(0, line + _scale * 2/3)];
     [drawer lineToPoint:NSMakePoint(2 * _scale - (_scale/10), line + _scale * 2/3)];
     [drawer lineToPoint:NSMakePoint(2 * _scale + (_scale/10), line)];
-    [drawer lineToPoint:NSMakePoint(frameEnd + _scale - _scale/10, line)];
-    [drawer lineToPoint:NSMakePoint(frameEnd + _scale + _scale/10, line + _scale * 2/3)];
+    [drawer lineToPoint:NSMakePoint(_frameEnd + _scale - _scale/10, line)];
+    [drawer lineToPoint:NSMakePoint(_frameEnd + _scale + _scale/10, line + _scale * 2/3)];
     [drawer lineToPoint:NSMakePoint(self.bounds.size.width, line + _scale * 2/3)];
     [drawer stroke];
 } //Пока что не трогать
@@ -368,12 +400,12 @@ typedef enum {
     [color set];
     cellDrawer.lineWidth = 1.f;
     [cellDrawer moveToPoint:point];
-    CGFloat part = _scale/3;
+    CGFloat part = _scale / 3;
     
     for (int i = 0; i < 2; i++) {
         [cellDrawer moveToPoint:point];
-        [cellDrawer lineToPoint:NSMakePoint(point.x + _scale * 2/3/6, point.y + part)];
-        [cellDrawer lineToPoint:NSMakePoint(point.x + length - _scale *2/3/6, point.y + part)];
+        [cellDrawer lineToPoint:NSMakePoint(point.x + _scale / 9, point.y + part)];
+        [cellDrawer lineToPoint:NSMakePoint(point.x + length - _scale / 9, point.y + part)];
         [cellDrawer lineToPoint:NSMakePoint(point.x + length, point.y)];
         part *= -1;
     }
@@ -400,15 +432,15 @@ typedef enum {
     }
     
     if (point.y == lineCbe + blockParameters.y/2 && valueOfLines == 3) {
-        if (point.x == blockParameters.x - blockParameters.x/6) {
+        if (point.x == blockParameters.x - blockParameters.x / 6) {
             currentText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"1101"]
                                                           attributes:attributes];
         }
     }
     
     if (coefficient > 0.5) {
-        [currentText drawInRect:NSMakeRect(point.x + length/4, point.y - blockParameters.y/4, length, blockParameters.y/2)];
+        [currentText drawInRect:NSMakeRect(point.x + length / 4, point.y - blockParameters.y / 4, length, blockParameters.y / 2)];
     }
-}
+} //Переписать
 
 @end

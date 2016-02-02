@@ -16,6 +16,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     Model *myModel = [[Model alloc] init];
+    self.transactionView.mainDictionary = [Model returnDictionaryUsingCells:NO
+                                                                 parameters:1
+                                                                    bitWord:8
+                                                                    command:3
+                                                               digitAddress:1
+                                                                 accessTime:30
+                                                              andViewAccess:@"1-2-3-4"];
+    
     self.transactionView.scale = [myModel.mainDictionary[@"Scale"] floatValue];
     self.transactionView.frameEnd = [myModel.mainDictionary[@"Frame End"] floatValue];
     self.transactionView.firstLaunch = YES;
@@ -53,7 +61,7 @@
             _bitWord.placeholderString = @"!!!";
         }
     }
-}
+} //Мусор
 
 #pragma mark - Set
 
@@ -79,7 +87,7 @@
     }
     
     self.transactionView.digitAddress = _addressDigitControl.selectedSegment ? @"64" : @"32";
-}
+} //Мусор
 
 #pragma mark - Other
 
@@ -96,7 +104,7 @@
         [buferArray addObject:[NSNumber numberWithInteger:delay * [_accessTime.stringValue integerValue]]];
     }
     self.transactionView.arrayOfDelays = [NSArray arrayWithArray:buferArray];
-}
+} //Мусор
 
 - (NSString *) createBitWord {
     switch ([_bitWord.stringValue integerValue]) {
@@ -115,7 +123,7 @@
             return @"false";
             break;
     }
-}
+} //Мусор
 
 - (NSString *) returnCommand {
     switch (_chosenCommand.selectedTag) {
@@ -135,7 +143,7 @@
             return @"false";
             break;
     }
-}
+} //Мусор
 
 - (void) makeFullArraysForPlots {
     self.plotView.arrayOfEightBits = [NSMutableArray array];
@@ -152,6 +160,6 @@
         [self.plotView.arrayOfThirtyTwoBits addObject:[NSValue valueWithPoint:NSMakePoint(step, lettersInNano)]];
         step += self.plotView.bounds.size.width/10;
     }
-}
+} //Мусор
 
 @end

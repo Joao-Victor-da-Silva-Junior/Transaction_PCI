@@ -7,4 +7,11 @@
 
 + (NSMutableDictionary *) returnRandomValues;
 
++ (NSMutableDictionary *) returnDictionaryUsingCells:(BOOL) isCells
+                                          parameters:(NSInteger) param
+                                             bitWord:(NSInteger) bitWord
+                                             command:(NSInteger) cmd
+                                        digitAddress:(NSInteger) digAdr
+                                          accessTime:(NSInteger) access
+                                       andViewAccess:(NSString *) view;
 @end
