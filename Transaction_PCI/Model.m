@@ -10,7 +10,6 @@
     if (self) {
         _mainDictionary = [NSMutableDictionary dictionary];
         _mainDictionary[@"Scale"] = @60.f;
-        _mainDictionary[@"Frame End"] = @660.f;
     }
     return self;
 }
@@ -48,23 +47,38 @@
         return newArray;
     };
     
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    NSInteger (^totalTacts) (NSArray *, NSInteger) = ^(NSArray *array, NSInteger numOfBlocks) {
+        NSInteger sum = 0;
+        for (int i = 0; i < numOfBlocks; i++) {
+            sum += [[array objectAtIndex:(i % [array count])] integerValue];
+            NSLog(@"%ld", sum);
+        }
+        return sum;
+    };
     
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    CGFloat scale = 0.f;
+    CGFloat frameEnd = 0.f;
+    NSInteger numberOfBlocks = 0;
+    NSArray *accessArray = [NSArray arrayWithArray:returnNewArray(view, access)];
     dictionary[@"Bit Word"] = [NSString returnBitWordFrom:bitWord];
     dictionary[@"Command"] = [NSString returnCommandFrom:cmd];
-    dictionary[@"Access"] = returnNewArray(view, access);
     NSLog(@"%.1f", tactPerBlock);
-    //dictionary[@"Num of Blocks"] = [NSNumber numberWithInteger:param];
     CGFloat tactCount;
     if (isCells) {
-        dictionary[@"Num of Blocks"] = [NSNumber numberWithInteger:param];
-        
+        scale = (CGFloat)960/(tactPerBlock*param + 4);
+        numberOfBlocks = param;
     } else {
         tactCount = ceilf((CGFloat)param * 1000/30);
-        dictionary[@"Scale"] = [NSNumber numberWithFloat:(CGFloat)960/tactCount];
-        dictionary[@"Num of Blocks"] = [NSNumber numberWithInteger:tactCount/tactPerBlock];
+        scale = (CGFloat)960/tactCount;
+        numberOfBlocks = tactCount/tactPerBlock;
     }
-    
+    frameEnd = (CGFloat) (totalTacts(accessArray, numberOfBlocks) + 1) * scale;
+    dictionary[@"Frame End"] = [NSNumber numberWithFloat:frameEnd];
+    dictionary[@"Num of Blocks"] = [NSNumber numberWithInteger:numberOfBlocks];
+    dictionary[@"Scale"] = [NSNumber numberWithFloat:scale];
+    dictionary[@"Access"] = accessArray;
+    dictionary[@"Start Tact"] = @2;
     return dictionary;
 }
 

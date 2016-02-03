@@ -15,17 +15,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    Model *myModel = [[Model alloc] init];
-    self.transactionView.mainDictionary = [Model returnDictionaryUsingCells:NO
-                                                                 parameters:0.5
+    self.transactionView.mainDictionary = [Model returnDictionaryUsingCells:YES
+                                                                 parameters:4
                                                                     bitWord:8
                                                                     command:3
                                                                digitAddress:1
                                                                  accessTime:30
                                                               andViewAccess:@"1-2-3-4"];
     
-    self.transactionView.scale = [myModel.mainDictionary[@"Scale"] floatValue];
-    self.transactionView.frameEnd = [myModel.mainDictionary[@"Frame End"] floatValue];
+ //   self.transactionView.scale = [myModel.mainDictionary[@"Scale"] floatValue];
+  //  self.transactionView.frameEnd = [myModel.mainDictionary[@"Frame End"] floatValue];
     self.transactionView.firstLaunch = YES;
     self.transactionView.drawModeIs = cells;
     self.modeTextRepresentation.stringValue = @"Число слов:";

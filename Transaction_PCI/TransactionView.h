@@ -19,6 +19,6 @@ typedef enum {
 
 @property (strong, nonatomic) NSMutableDictionary *mainDictionary;
 @property (assign, nonatomic) CGFloat scale;
-@property (assign, nonatomic) CGFloat frameEnd;
+//@property (assign, nonatomic) CGFloat frameEnd;
 
 @end
