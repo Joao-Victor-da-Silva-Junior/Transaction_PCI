@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		5510B5821C5FE537003CB457 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 5510B5811C5FE537003CB457 /* Model.m */; };
 		5510B5851C60DCC4003CB457 /* NSString+CommandEqual.m in Sources */ = {isa = PBXBuildFile; fileRef = 5510B5841C60DCC4003CB457 /* NSString+CommandEqual.m */; };
+		5510B5DA1C666DA8003CB457 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2006471C243FA700054D5D /* main.m */; };
 		8B2006451C243FA700054D5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2006441C243FA700054D5D /* AppDelegate.m */; };
-		8B2006481C243FA700054D5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2006471C243FA700054D5D /* main.m */; };
 		8B20064B1C243FA700054D5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B20064A1C243FA700054D5D /* ViewController.m */; };
 		8B20064D1C243FA700054D5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B20064C1C243FA700054D5D /* Assets.xcassets */; };
 		8B2006501C243FA700054D5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B20064E1C243FA700054D5D /* Main.storyboard */; };
@@ -323,10 +323,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5510B5DA1C666DA8003CB457 /* main.m in Sources */,
 				8B20064B1C243FA700054D5D /* ViewController.m in Sources */,
 				8BC3BDB01C2D3E4B0010E9F0 /* SecondPlotsView.m in Sources */,
 				8B2006751C24401E00054D5D /* TransactionView.m in Sources */,
-				8B2006481C243FA700054D5D /* main.m in Sources */,
 				5510B5851C60DCC4003CB457 /* NSString+CommandEqual.m in Sources */,
 				5510B5821C5FE537003CB457 /* Model.m in Sources */,
 				8B2006451C243FA700054D5D /* AppDelegate.m in Sources */,

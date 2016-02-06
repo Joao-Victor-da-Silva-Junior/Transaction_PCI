@@ -19,17 +19,12 @@
                                                                  parameters:4
                                                                     bitWord:32
                                                                     command:3
-                                                               digitAddress:0
+                                                               digitAddress:1
                                                                  accessTime:30
                                                               andViewAccess:@"1-1-2-4"];
     
     self.transactionView.firstLaunch = YES;
-    self.transactionView.drawModeIs = cells;
     self.modeTextRepresentation.stringValue = @"Число слов:";
-    self.transactionView.letters = 6;
-    self.transactionView.bitWord = @"1100";
-    self.transactionView.command = @"0110";
-    self.transactionView.digitAddress = @"32";
 }
 
 - (void)setRepresentedObject:(id)representedObject {

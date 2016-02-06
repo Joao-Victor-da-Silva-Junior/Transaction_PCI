@@ -43,8 +43,8 @@
     CGFloat scale = 0.f;
     CGFloat frameEnd = 0.f;
     NSInteger numberOfBlocks = 0;
-    NSInteger numberOfAD = 0;
-    NSInteger numberOfCbe = 0;
+    NSInteger numberOfAD = 1;
+    NSInteger numberOfCbe = 1;
     NSInteger startTact = 0;
     CGFloat blockHeight = 0.f;
     NSArray *accessArray = [NSArray arrayWithArray:returnNewArray(view, access)];
@@ -58,7 +58,9 @@
         scale = (CGFloat)960/tactCount;
         numberOfBlocks = tactCount/tactPerBlock;
     }
+    
     scale = (scale > 60.f) ? 60 : scale;
+    
     if (bitWord == 64 && digAdr == 0) {
         numberOfAD = 2;
         startTact = 3;
@@ -75,6 +77,7 @@
         startTact = 2;
         blockHeight = scale * 2/6;
     }
+    
     frameEnd = (CGFloat) (totalTacts(accessArray, numberOfBlocks) + (startTact - 1)) * scale;
     
     dictionary[@"Bit Word"] = [NSString returnBitWordFrom:bitWord];
